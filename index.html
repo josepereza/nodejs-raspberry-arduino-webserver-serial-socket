@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<title>GPIO Control</title>
+
+<body>
+    <h2>Control GPIO 22</h2>
+    <button type="button" id="state" onclick="LEDOn()" style="background-color:green;">ON</button>
+    <button type="button" id="state" onclick="LEDOff()" style="background-color:red;">OFF</button>
+    <h2 class="mensaje">Todo bien</h2>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script>
+        alert('encendido');
+        var socket = io.connect(); //load socket.io-client and connect to the host
+        socket.on("sensor", (arg) => {
+        if (arg=="peligro"){
+  document.querySelector(".mensaje").style.backgroundColor = "red";
+        document.querySelector(".mensaje").innerHTML="Sensor por debajo de 500";
+
+          }else {
+document.querySelector(".mensaje").style.backgroundColor = "yellow";
+        document.querySelector(".mensaje").innerHTML="Todo bien";
+
+}
+
+       
+        
+                      
+               
+}); 
+       function LEDOn() {
+            socket.emit("state", 1); //send button state to server
+        }
+
+        function LEDOff() {
+            socket.emit("state", 0); //send button state to server
+        }
+    </script>
+
+</html>
+</body>
+
+</html>
