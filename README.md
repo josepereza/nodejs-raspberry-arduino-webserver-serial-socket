@@ -12,7 +12,8 @@
     - led rojo
     - resistencia 330 ohmios
 * placa arduino uno
-    - led
+    - placa protoboard
+    - led rojo
     - resistencia 10K
     - resistencia 330 ohmios
     - fotoresistencia 
